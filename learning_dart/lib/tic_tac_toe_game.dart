@@ -3,7 +3,7 @@ enum TicTacToeMark { x, o, none }
 enum TicTacToeState { xTurn, oTurn, xWon, oWon, tie }
 
 class TicTacToeGame {
-  final board = List<TicTacToeMark>.filled(9, TicTacToeMark.none);
+  var board = List<TicTacToeMark>.filled(9, TicTacToeMark.none);
   var state = TicTacToeState.xTurn;
 
   String get stateString => state.toString().split(".").last;
@@ -26,7 +26,21 @@ class TicTacToeGame {
   }
 
   // void pressedSquare({required int index}) {
-  void pressedSquare(int index) {}
+  void pressedSquare(int index) {
+    // Check the index to be sure it it 0 to 8.
+    // Check if the board square is empty (return silent and do nothing if true)
+    if (state == TicTacToeState.xTurn) {
+      board[index] = TicTacToeMark.x;
+      state = TicTacToeState.oTurn;
+      _checkForWin();
+    } else if (state == TicTacToeState.oTurn) {
+      board[index] = TicTacToeMark.o;
+      state = TicTacToeState.xTurn;
+      _checkForWin();
+    }
+  }
+
+  void _checkForWin() {}
 
   @override
   String toString() {
