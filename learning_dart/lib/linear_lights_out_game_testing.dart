@@ -33,4 +33,6 @@ void main() {
     expect(game9.lightStates[7], true);
     expect(game9.lightStates[8], true);
   });
+
+  // TODO: Keep testing the class.
 }

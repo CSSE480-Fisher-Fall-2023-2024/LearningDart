@@ -22,6 +22,9 @@ class LinearLightsOutGame {
       // Silently do nothing if the game is won already.
       return;
     }
+
+    // TODO: Finish this class. For example increment the moveCounter.
+
     _toggleLight(index - 1);
     _toggleLight(index);
     _toggleLight(index + 1);
